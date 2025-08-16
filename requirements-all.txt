@@ -1,0 +1,2 @@
+-e tools/dk-sayhi
+# Add more tools here as you create them

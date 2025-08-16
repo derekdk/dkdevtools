@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dkdevtools"
+version = "0.1.0"
+description = "Suite of developer productivity tools (monorepo root)."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "Derek" }
+]
+license = { file = "LICENSE" }
+keywords = ["devtools", "productivity", "cli", "monorepo"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.optional-dependencies]
+# Install all tools at once when published to PyPI by name
+# all = ["dk-sayhi"]
+
+[project.urls]
+Homepage = "https://github.com/derekdk/dkdevtools"
+Issues = "https://github.com/derekdk/dkdevtools/issues"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "PL"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/README.md", "/LICENSE"]
+
+[tool.hatch.build.targets.wheel]
+packages = []
