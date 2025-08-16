@@ -1,7 +1,5 @@
-"""Template tool package."""
+"""Project root finder package."""
 
-__all__ = ["hello"]
+from .cli import find_project_root
 
-
-def hello(name: str) -> str:
-    return f"Hello, {name}!"
+__all__ = ["find_project_root"]

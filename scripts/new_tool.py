@@ -45,6 +45,12 @@ def scaffold(p: Params) -> Path:
 
     # Rename package directory
     (src_dir / "src" / "template_tool").rename(src_dir / "src" / p.package_name)
+    
+    # Rename test file to avoid conflicts
+    template_test_file = src_dir / "tests" / "test_template_tool.py"
+    if template_test_file.exists():
+        new_test_file = src_dir / "tests" / f"test_{p.package_name}.py"
+        template_test_file.rename(new_test_file)
 
     # Replace content in files (text files only)
     TEXT_EXT = {
@@ -101,7 +107,7 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(args=argv)
-    print(f"Hello, { '{' }args.name{'}' }!")
+    print(f"Hello, {{args.name}}!")
     return 0
 
 if __name__ == "__main__":
