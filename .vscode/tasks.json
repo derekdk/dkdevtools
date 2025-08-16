@@ -2,6 +2,39 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "New Tool: Scaffold (with CLI)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "${workspaceFolder}\\scripts\\new_tool.py",
+        "${input:toolName}",
+        "--slug",
+        "${input:toolSlug}",
+        "--package",
+        "${input:pkgName}",
+        "--desc",
+        "${input:toolDesc}",
+        "--cli"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "New Tool: Scaffold (library only)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "${workspaceFolder}\\scripts\\new_tool.py",
+        "${input:toolName}",
+        "--slug",
+        "${input:toolSlug}",
+        "--package",
+        "${input:pkgName}",
+        "--desc",
+        "${input:toolDesc}"
+      ],
+      "group": "build"
+    },
+    {
       "label": "Lint (ruff)",
       "type": "shell",
       "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
@@ -18,6 +51,32 @@
       "type": "shell",
       "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
       "args": ["-m", "pytest", "-q"]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "toolName",
+      "type": "promptString",
+      "description": "Human-friendly tool name",
+      "default": "My New Tool"
+    },
+    {
+      "id": "toolSlug",
+      "type": "promptString",
+      "description": "Tool slug (folder name)",
+      "default": "my-new-tool"
+    },
+    {
+      "id": "pkgName",
+      "type": "promptString",
+      "description": "Python package name (src/<package>)",
+      "default": "my_new_tool"
+    },
+    {
+      "id": "toolDesc",
+      "type": "promptString",
+      "description": "Short description",
+      "default": "New dkdevtools tool"
     }
   ]
 }

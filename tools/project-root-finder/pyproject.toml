@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "project-root-finder"
+version = "0.0.0"
+description = "Command line tool to find the root of a project"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "Derek" }
+]
+license = { text = "MIT" }
+keywords = ["dkdevtools", "template", "cli"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.scripts]
+project-root-finder = "projectroot.cli:main"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src",
+  "/README.md"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/projectroot"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "PL"]
+
+[tool.ruff.format]
+quote-style = "double"

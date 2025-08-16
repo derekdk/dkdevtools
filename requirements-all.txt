@@ -1,2 +1,3 @@
 -e tools/dk-sayhi
+-e tools/project-root-finder
 # Add more tools here as you create them

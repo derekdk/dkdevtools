@@ -1,3 +1,4 @@
 hatch
 ruff
 pytest
+cookiecutter

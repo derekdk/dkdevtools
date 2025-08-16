@@ -1,0 +1,12 @@
+{
+  "Scaffold dkdevtools tool": {
+    "scope": "powershell",
+    "prefix": "dk-new-tool",
+    "body": [
+      "${workspaceFolder}\\.venv\\Scripts\\python.exe ${workspaceFolder}\\scripts\\new_tool.py \"${1:My New Tool}\" --cli",
+      "# After scaffolding, add '-e tools/${2:my-new-tool}' to requirements-all.txt and install: ",
+      "# ${workspaceFolder}\\.venv\\Scripts\\python.exe -m pip install -e tools/${2:my-new-tool}"
+    ],
+    "description": "Run the scaffolding script to create a new tool from the template"
+  }
+}

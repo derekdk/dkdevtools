@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "{{cookiecutter.tool_slug}}"
+version = "0.1.0"
+description = "{{cookiecutter.description}}"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "Derek" }
+]
+license = { file = "../../LICENSE" }
+keywords = ["dkdevtools", "cli", "tool"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+{% if cookiecutter.add_cli == 'y' %}
+[project.scripts]
+{{cookiecutter.tool_slug}} = "{{cookiecutter.package_name}}.cli:main"
+{% endif %}
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src",
+  "/README.md"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/{{cookiecutter.package_name}}"]

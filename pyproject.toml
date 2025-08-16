@@ -32,6 +32,10 @@ Issues = "https://github.com/derekdk/dkdevtools/issues"
 
 [tool.ruff]
 line-length = 100
+# Exclude cookiecutter templates from linting
+exclude = [
+  "templates/**"
+]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM", "PL"]
@@ -42,6 +46,8 @@ quote-style = "double"
 [tool.pytest.ini_options]
 addopts = "-q"
 filterwarnings = ["ignore::DeprecationWarning"]
+# Only run tests under the tools/ directory (skip templates)
+testpaths = ["tools"]
 
 [tool.hatch.build.targets.sdist]
 include = ["/README.md", "/LICENSE"]

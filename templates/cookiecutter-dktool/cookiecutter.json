@@ -1,0 +1,7 @@
+{
+  "tool_name": "My New Tool",
+  "tool_slug": "my-new-tool",
+  "package_name": "my_new_tool",
+  "description": "New dkdevtools tool",
+  "add_cli": ["y", "n"]
+}
